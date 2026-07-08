@@ -8,6 +8,7 @@
 
   const SOCIAL_LABELS = {
     instagram: 'Instagram',
+    fiverr: 'Fiverr',
     facebook: 'Facebook',
     tiktok: 'TikTok',
     youtube: 'YouTube',

@@ -12,7 +12,8 @@ window.SITE_CONFIG = {
     calendlyUrl: '',
 
     social: {
-      instagram: '',
+      instagram: 'https://instagram.com/vinceremediaworks',
+      fiverr: 'https://www.fiverr.com/vinceremedia_',
       facebook: '',
       tiktok: '',
       youtube: '',
