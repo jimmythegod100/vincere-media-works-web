@@ -4,7 +4,9 @@
 window.SITE_CONFIG = {
   client: {
     name: 'Vincere Media Works',
-    email: 'andrewjamesmartinez91@gmail.com',
+    email: 'vinceremediaworks@gmail.com',
+    phone: '(209) 315-5702',
+    phoneTel: 'tel:+12093155702',
     siteUrl: 'https://jimmythegod100.github.io/vincere-media-works-web/',
     formSubject: 'Project inquiry — Vincere Media Works'
   },
