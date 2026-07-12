@@ -857,3 +857,146 @@ h3 {
 
   .section { padding: 4rem 0; }
 }
+
+/* Request received / confirmation page */
+
+.confirmation-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% -10%, var(--red-soft), transparent 55%),
+    var(--bg);
+}
+
+.confirmation {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.25rem;
+  text-align: center;
+}
+
+.confirmation-card {
+  width: min(520px, 100%);
+  padding: clamp(2rem, 5vw, 3rem);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
+}
+
+.confirmation-logo {
+  width: 88px;
+  margin: 0 auto 1.5rem;
+  border-radius: 16px;
+}
+
+.confirmation-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1.25rem;
+  color: var(--red);
+  filter: drop-shadow(0 0 12px var(--red-glow));
+}
+
+.confirmation-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.confirmation-eyebrow {
+  margin-bottom: 0.5rem;
+}
+
+.confirmation-card h1 {
+  font-size: clamp(2.4rem, 7vw, 3.2rem);
+  margin-bottom: 1rem;
+}
+
+.confirmation-lead {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  margin-bottom: 2rem;
+}
+
+.confirmation-lead strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.confirmation-contact {
+  padding: 1.25rem 1rem;
+  margin-bottom: 2rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.confirmation-contact-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.65rem;
+}
+
+.confirmation-contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem 0.75rem;
+  font-weight: 600;
+}
+
+.confirmation-contact-links a {
+  color: var(--red);
+  transition: color 0.2s;
+}
+
+.confirmation-contact-links a:hover {
+  color: var(--red-bright);
+}
+
+.confirmation-divider {
+  color: var(--text-muted);
+}
+
+.confirmation-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.confirmation-tagline {
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+@media (max-width: 480px) {
+  .confirmation-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .confirmation-actions .btn {
+    width: 100%;
+  }
+
+  .confirmation-divider { display: none; }
+
+  .confirmation-contact-links {
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+}

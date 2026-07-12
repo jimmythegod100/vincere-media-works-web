@@ -24,7 +24,7 @@ Edit `js/site-config.js` to add Calendly, social links, or payment URLs.
 
 ## Contact form
 
-First submission activates FormSubmit at the configured inbox. Redirect after submit: `thanks.html`.
+First submission activates FormSubmit at the configured inbox. Redirect after submit: `request-received.html` (legacy `thanks.html` redirects there).
 
 ## Assets
 
