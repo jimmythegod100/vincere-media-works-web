@@ -30,6 +30,9 @@ window.SITE_CONFIG = {
       stripeLink: '',
       paypalLink: '',
       venmoLink: ''
-    }
+    },
+
+    // Optional: paste a GA4 Measurement ID (G-XXXXXXXX) to enable analytics on this site
+    gaMeasurementId: ''
   }
 };

@@ -86,6 +86,13 @@
         form.reportValidity();
         return;
       }
+      if (typeof window.VMW_TRACK === 'function') {
+        window.VMW_TRACK('generate_lead', {
+          event_category: 'contact',
+          event_label: 'lead_form',
+          transport_type: 'beacon'
+        });
+      }
       const btn = form.querySelector('button[type="submit"]');
       if (btn) {
         btn.disabled = true;
