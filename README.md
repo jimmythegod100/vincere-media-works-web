@@ -1,13 +1,14 @@
 # Vincere Media Works — Website
 
-Static portfolio and services site for **Vincere Media Works**, hosted on GitHub Pages.
+Static marketing site for **Vincere Media Works** — website design, local SEO, analytics, and monthly care for local businesses.
 
-**Live URL:** https://jimmythegod100.github.io/vincere-media-works-web/
+**Production domain:** https://vinceremediaworks.com/  
+**GitHub Pages (until DNS is live):** https://jimmythegod100.github.io/vincere-media-works-web/
 
 ## Stack
 
 - Static HTML / CSS / JavaScript
-- [FormSubmit](https://formsubmit.co) contact form
+- [FormSubmit](https://formsubmit.co) lead form → `vince@vinceremediaworks.com`
 - GitHub Pages (branch `main`, root `/`)
 
 ## Local preview
@@ -20,7 +21,9 @@ python3 -m http.server 8080
 
 ## Config
 
-Edit `js/site-config.js` to add Calendly, social links, or payment URLs.
+Edit `js/site-config.js` for email, domain, FormSubmit endpoint, Calendly, social links, or payment URLs.
+
+Canonical / Open Graph / schema.org URLs already point at `vinceremediaworks.com`. Point DNS (and verify FormSubmit for the new inbox) when the domain is ready.
 
 ## Contact form
 

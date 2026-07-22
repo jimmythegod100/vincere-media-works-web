@@ -6,7 +6,7 @@
     toggle.addEventListener('click', () => {
       const open = links.classList.toggle('open');
       toggle.classList.toggle('open', open);
-      toggle.setAttribute('aria-expanded', open);
+      toggle.setAttribute('aria-expanded', String(open));
       toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
     });
 
@@ -22,13 +22,35 @@
 
   const header = document.querySelector('.site-header');
   window.addEventListener('scroll', () => {
-    if (header) {
-      header.classList.toggle('scrolled', window.scrollY > 20);
-    }
+    if (header) header.classList.toggle('scrolled', window.scrollY > 20);
   }, { passive: true });
 
-  const form = document.querySelector('.contact-form');
+  const cfg = window.SITE_CONFIG && window.SITE_CONFIG.client;
+  const form = document.getElementById('lead-form') || document.querySelector('.contact-form');
   const serviceSelect = document.getElementById('service-select');
+
+  if (cfg && form) {
+    form.action = cfg.formEndpoint || form.action;
+    const subject = document.getElementById('form-subject');
+    if (subject && cfg.formSubject) subject.value = cfg.formSubject;
+  }
+
+  if (cfg) {
+    const emailEls = document.querySelectorAll('#contact-email, #footer-email');
+    emailEls.forEach((el) => {
+      el.href = 'mailto:' + cfg.email;
+      el.textContent = cfg.email;
+    });
+    if (cfg.smsHref) {
+      document.querySelectorAll('#contact-sms, #footer-sms, .sticky-cta-text').forEach((el) => {
+        if (el.id === 'footer-sms') {
+          el.href = 'sms:+12093155702';
+        } else {
+          el.href = cfg.smsHref;
+        }
+      });
+    }
+  }
 
   function prefillService(value) {
     if (!serviceSelect || !value) return;
@@ -58,7 +80,12 @@
   } catch (_) { /* ignore */ }
 
   if (form) {
-    form.addEventListener('submit', () => {
+    form.addEventListener('submit', (e) => {
+      if (!form.checkValidity()) {
+        e.preventDefault();
+        form.reportValidity();
+        return;
+      }
       const btn = form.querySelector('button[type="submit"]');
       if (btn) {
         btn.disabled = true;

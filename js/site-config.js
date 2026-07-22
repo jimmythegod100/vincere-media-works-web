@@ -1,14 +1,17 @@
 /**
  * Vincere Media Works — site configuration
+ * Production domain readiness: update siteUrl when DNS is live.
  */
 window.SITE_CONFIG = {
   client: {
     name: 'Vincere Media Works',
-    email: 'vinceremediaworks@gmail.com',
+    email: 'vince@vinceremediaworks.com',
     phone: '(209) 315-5702',
     phoneTel: 'tel:+12093155702',
-    siteUrl: 'https://jimmythegod100.github.io/vincere-media-works-web/',
-    formSubject: 'Website inquiry — Vincere Media Works'
+    smsHref: 'sms:+12093155702?body=Hi%20Vince%20%E2%80%94%20I%27d%20like%20a%20free%20sample%20layout.',
+    siteUrl: 'https://vinceremediaworks.com/',
+    formSubject: 'Website inquiry — Vincere Media Works',
+    formEndpoint: 'https://formsubmit.co/vince@vinceremediaworks.com'
   },
   integrations: {
     calendlyUrl: '',
