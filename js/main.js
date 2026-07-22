@@ -22,9 +22,8 @@
 
   const header = document.querySelector('.site-header');
   window.addEventListener('scroll', () => {
-    const current = window.scrollY;
     if (header) {
-      header.classList.toggle('scrolled', current > 20);
+      header.classList.toggle('scrolled', window.scrollY > 20);
     }
   }, { passive: true });
 
@@ -37,13 +36,13 @@
     const match = options.find((opt) => opt.value === value || opt.textContent === value);
     if (match) {
       serviceSelect.value = match.value;
-    } else {
-      const opt = document.createElement('option');
-      opt.value = value;
-      opt.textContent = value;
-      serviceSelect.appendChild(opt);
-      serviceSelect.value = value;
+      return;
     }
+    const opt = document.createElement('option');
+    opt.value = value;
+    opt.textContent = value;
+    serviceSelect.appendChild(opt);
+    serviceSelect.value = value;
   }
 
   document.querySelectorAll('[data-service]').forEach((el) => {

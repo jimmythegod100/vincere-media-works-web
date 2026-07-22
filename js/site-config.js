@@ -8,7 +8,7 @@ window.SITE_CONFIG = {
     phone: '(209) 315-5702',
     phoneTel: 'tel:+12093155702',
     siteUrl: 'https://jimmythegod100.github.io/vincere-media-works-web/',
-    formSubject: 'Project inquiry — Vincere Media Works'
+    formSubject: 'Website inquiry — Vincere Media Works'
   },
   integrations: {
     calendlyUrl: '',
