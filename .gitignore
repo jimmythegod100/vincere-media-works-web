@@ -1,0 +1,3 @@
+.venv-img/
+*.original.png
+cv/package.json
