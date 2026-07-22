@@ -1,17 +1,17 @@
 /**
  * Vincere Media Works — site configuration
- * Production domain readiness: update siteUrl when DNS is live.
+ * Live site URL (GitHub Pages). Contact email is Gmail.
  */
 window.SITE_CONFIG = {
   client: {
     name: 'Vincere Media Works',
-    email: 'vince@vinceremediaworks.com',
+    email: 'vinceremediaworks@gmail.com',
     phone: '(209) 315-5702',
     phoneTel: 'tel:+12093155702',
     smsHref: 'sms:+12093155702?body=Hi%20Vince%20%E2%80%94%20I%27d%20like%20a%20free%20sample%20layout.',
-    siteUrl: 'https://vinceremediaworks.com/',
+    siteUrl: 'https://jimmythegod100.github.io/vincere-media-works-web/',
     formSubject: 'Website inquiry — Vincere Media Works',
-    formEndpoint: 'https://formsubmit.co/vince@vinceremediaworks.com'
+    formEndpoint: 'https://formsubmit.co/vinceremediaworks@gmail.com'
   },
   integrations: {
     calendlyUrl: '',
