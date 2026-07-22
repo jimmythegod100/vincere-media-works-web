@@ -29,6 +29,35 @@
   }, { passive: true });
 
   const form = document.querySelector('.contact-form');
+  const serviceSelect = document.getElementById('service-select');
+
+  function prefillService(value) {
+    if (!serviceSelect || !value) return;
+    const options = Array.from(serviceSelect.options);
+    const match = options.find((opt) => opt.value === value || opt.textContent === value);
+    if (match) {
+      serviceSelect.value = match.value;
+    } else {
+      const opt = document.createElement('option');
+      opt.value = value;
+      opt.textContent = value;
+      serviceSelect.appendChild(opt);
+      serviceSelect.value = value;
+    }
+  }
+
+  document.querySelectorAll('[data-service]').forEach((el) => {
+    el.addEventListener('click', () => {
+      prefillService(el.getAttribute('data-service'));
+    });
+  });
+
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const fromQuery = params.get('service');
+    if (fromQuery) prefillService(fromQuery);
+  } catch (_) { /* ignore */ }
+
   if (form) {
     form.addEventListener('submit', () => {
       const btn = form.querySelector('button[type="submit"]');

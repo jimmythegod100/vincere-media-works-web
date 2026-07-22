@@ -1000,3 +1000,200 @@ h3 {
     gap: 0.35rem;
   }
 }
+
+/* —— Launch package —— */
+.launch-section {
+  padding: 5rem 0;
+  background: var(--bg);
+}
+
+.launch-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.launch-lead {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  margin: 1rem 0 1.25rem;
+  max-width: 36rem;
+}
+
+.launch-price {
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+  color: var(--text);
+}
+
+.launch-price strong {
+  color: var(--red);
+  font-size: 1.35rem;
+}
+
+.launch-list {
+  list-style: none;
+  margin: 0 0 1.75rem;
+  padding: 0;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.launch-list li {
+  position: relative;
+  padding-left: 1.4rem;
+  color: var(--text-muted);
+}
+
+.launch-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.45rem;
+  width: 0.55rem;
+  height: 0.55rem;
+  background: var(--red);
+}
+
+.launch-panel {
+  background: var(--bg-alt);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-left: 4px solid var(--red);
+  padding: 1.75rem 1.5rem;
+}
+
+.launch-panel h3 {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.75rem;
+  letter-spacing: 0.04em;
+  margin-bottom: 1.25rem;
+}
+
+.launch-point {
+  margin-bottom: 1.15rem;
+}
+
+.launch-point:last-child {
+  margin-bottom: 0;
+}
+
+.launch-point strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--text);
+}
+
+.launch-point span {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+/* —— Process —— */
+.process-grid {
+  list-style: none;
+  margin: 2.5rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.process-step {
+  background: var(--bg);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 1.5rem 1.25rem;
+}
+
+.process-num {
+  display: block;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 2rem;
+  color: var(--red);
+  letter-spacing: 0.06em;
+  margin-bottom: 0.5rem;
+}
+
+.process-step h3 {
+  margin-bottom: 0.5rem;
+}
+
+.process-step p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.service-cta {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--red);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.service-cta:hover {
+  color: var(--red-bright);
+}
+
+/* —— Sticky mobile CTA —— */
+.sticky-cta {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 90;
+  background: rgba(10, 10, 10, 0.96);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.65rem 0.75rem calc(0.65rem + env(safe-area-inset-bottom));
+  gap: 0.5rem;
+}
+
+.sticky-cta a {
+  flex: 1;
+  text-align: center;
+  padding: 0.75rem 0.5rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.sticky-cta-call,
+.sticky-cta-text {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.sticky-cta-quote {
+  background: var(--red);
+  color: #fff;
+}
+
+@media (max-width: 900px) {
+  .launch-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .process-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .process-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sticky-cta {
+    display: flex;
+  }
+
+  body {
+    padding-bottom: 4.5rem;
+  }
+}
