@@ -94,6 +94,30 @@
     });
   }
 
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const workCards = document.querySelectorAll('#work-grid .work-card');
+
+  function applyFilter(filter) {
+    workCards.forEach((card) => {
+      const category = card.getAttribute('data-category') || '';
+      const show = filter === 'all' || category === filter;
+      card.classList.toggle('is-hidden', !show);
+      card.setAttribute('aria-hidden', show ? 'false' : 'true');
+    });
+  }
+
+  filterBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const filter = btn.getAttribute('data-filter') || 'all';
+      filterBtns.forEach((b) => {
+        const active = b === btn;
+        b.classList.toggle('is-active', active);
+        b.setAttribute('aria-pressed', String(active));
+      });
+      applyFilter(filter);
+    });
+  });
+
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 })();
