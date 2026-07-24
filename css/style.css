@@ -1586,6 +1586,21 @@ h3 {
   color: var(--text-muted);
 }
 
+.legal-footer {
+  width: 100%;
+  max-width: 720px;
+  margin: 2rem auto 0;
+  padding: 1.25rem 1.25rem 2rem;
+  text-align: center;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.legal-footer p {
+  margin: 0;
+}
+
 @media (max-width: 480px) {
   .confirmation-actions {
     flex-direction: column;
