@@ -2,7 +2,7 @@
 
 Static marketing site for **Vincere Media Works** — website design, local SEO, analytics, and monthly care for local businesses.
 
-**Live site:** https://jimmythegod100.github.io/vincere-media-works-web/
+**Live site:** https://vinceremediaworks.com/ (GitHub Pages; falls back to https://jimmythegod100.github.io/vincere-media-works-web/ until DNS is live)
 
 ## Stack
 

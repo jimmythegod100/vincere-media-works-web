@@ -9,7 +9,7 @@ window.SITE_CONFIG = {
     phone: '(209) 315-5702',
     phoneTel: 'tel:+12093155702',
     smsHref: 'sms:+12093155702?body=Hi%20Vince%20%E2%80%94%20I%27d%20like%20a%20free%20sample%20layout.',
-    siteUrl: 'https://jimmythegod100.github.io/vincere-media-works-web/',
+    siteUrl: 'https://vinceremediaworks.com/',
     formSubject: 'Website inquiry — Vincere Media Works',
     formEndpoint: 'https://formsubmit.co/vinceremediaworks@gmail.com'
   },

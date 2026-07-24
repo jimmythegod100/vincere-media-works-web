@@ -1,75 +1,72 @@
 # Custom domain: vinceremediaworks.com
 
-**Status (2026-07-24):** `vinceremediaworks.com` returns **NXDOMAIN** — the domain is **not registered** (Verisign WHOIS: "No match"). This is not a GitHub Pages or DNS-record misconfiguration; the name must be purchased first.
+**Audit date:** 2026-07-24 (Mac valak)
 
-**Working site today:** https://jimmythegod100.github.io/vincere-media-works-web/
+## Live status (public DNS)
 
-## After you register the domain
+| Check | Result |
+|-------|--------|
+| Verisign WHOIS | **No match** — not in `.com` registry yet |
+| `dig @8.8.8.8 vinceremediaworks.com` | **NXDOMAIN** |
+| `dig @1.1.1.1 www` | **NXDOMAIN** |
+| `curl https://vinceremediaworks.com` | **Cannot resolve host** |
+| GitHub Pages (github.io) | **200 OK** — site built |
 
-### 1. GitHub Pages — apex + www (recommended DNS at registrar)
+If Cloudflare dashboard shows green checks but public DNS is still NXDOMAIN, the usual causes are: registration still processing, nameservers not updated at the registrar, or the zone was added in Cloudflare before the domain was actually registered.
 
-| Type | Host | Value |
-|------|------|-------|
-| **A** | `@` | `185.199.108.153` |
-| **A** | `@` | `185.199.109.153` |
-| **A** | `@` | `185.199.110.153` |
-| **A** | `@` | `185.199.111.153` |
-| **CNAME** | `www` | `jimmythegod100.github.io` |
+## Checklist
 
-GitHub may also accept a single apex **ALIAS/ANAME** to `jimmythegod100.github.io` if your registrar supports it (Cloudflare CNAME flattening works).
+### DONE
 
-### 2. Enable custom domain in GitHub
+- [x] Static site deployed on GitHub Pages (`jimmythegod100/vincere-media-works-web`, branch `main`)
+- [x] FormSubmit → `vinceremediaworks@gmail.com`
+- [x] `CNAME` file in repo root (`vinceremediaworks.com`)
+- [x] Canonical URLs, sitemap, robots.txt updated to custom domain
+- [x] `privacy.html` already references `vinceremediaworks.com`
 
-```bash
-# After DNS is live (can take up to 24–48h for new registration)
-gh api -X POST repos/jimmythegod100/vincere-media-works-web/pages \
-  -f cname='vinceremediaworks.com' \
-  -f build_type=legacy \
-  -f source[branch]=main \
-  -f source[path]=/
-```
+### STILL NEEDED (blocking custom domain)
 
-Or: repo **Settings → Pages → Custom domain** → `vinceremediaworks.com` → enforce HTTPS.
+1. **Confirm domain registration completed** — Verisign must show the domain registered (not “No match”). Re-check: `whois -h whois.verisign-grs.com vinceremediaworks.com`
+2. **Point nameservers to Cloudflare** at the registrar (two Cloudflare NS hostnames from the zone overview).
+3. **Cloudflare DNS records** (DNS only / grey cloud for GitHub Pages):
 
-Optional repo file (only after domain resolves):
+   | Type | Name | Value |
+   |------|------|-------|
+   | **A** | `@` | `185.199.108.153` |
+   | **A** | `@` | `185.199.109.153` |
+   | **A** | `@` | `185.199.110.153` |
+   | **A** | `@` | `185.199.111.153` |
+   | **CNAME** | `www` | `jimmythegod100.github.io` |
 
-```
-vinceremediaworks.com
-```
+   Alternative apex: CNAME `@` → `jimmythegod100.github.io` (Cloudflare flattening).
 
-Save as `CNAME` at repo root and push to `main`.
+4. **GitHub Pages custom domain** — Settings → Pages → Custom domain → `vinceremediaworks.com` → Enforce HTTPS. Or:
 
-### 3. Verify
+   ```bash
+   gh api -X PUT repos/jimmythegod100/vincere-media-works-web/pages \
+     -f cname='vinceremediaworks.com' \
+     -f https_enforced=true \
+     -f build_type=legacy \
+     -f 'source[branch]=main' \
+     -f 'source[path]=/'
+   ```
+
+5. **Wait for DNS + TLS** — After NS propagate (minutes–48h), GitHub issues HTTPS cert (up to ~24h). Cloudflare SSL/TLS → **Full (strict)** if proxied.
+
+6. **FormSubmit** — Submit the contact form once from `https://vinceremediaworks.com` to activate the new domain.
+
+7. **Optional:** Cloudflare redirect rule `www` → apex (or set both in GitHub Pages).
+
+### Verify when live
 
 ```bash
 dig +short vinceremediaworks.com A
 dig +short www.vinceremediaworks.com CNAME
-curl -sI https://vinceremediaworks.com/ | head -5
+curl -sI https://vinceremediaworks.com/ | head -8
 ```
 
-Expected: A records → GitHub Pages IPs; HTTPS 200 with site content.
+Expected: A → GitHub Pages IPs (or Cloudflare proxy); HTTPS **200**; content matches the portfolio site.
 
-## Cloudflare alternative
+## Fallback URL
 
-If the domain is on Cloudflare:
-
-1. Add site → use Cloudflare nameservers at registrar.
-2. DNS only (grey cloud) for `@` A records above, or CNAME `www` → `jimmythegod100.github.io`.
-3. SSL/TLS → Full (strict) after GitHub issues certificate.
-
-## Registrar purchase (manual)
-
-No registrar API credentials were found on this Mac. To register:
-
-- Search: [Namecheap domain search](https://www.namecheap.com/domains/registration/results/?domain=vinceremediaworks.com)
-- Or Google Domains / Porkbun / Cloudflare Registrar
-
-AppleScript helper opens search in Chrome:
-
-```bash
-osascript ~/.organized/scripts/ui-automation/open-vinceremediaworks-domain-search.applescript
-```
-
-## Site copy note
-
-`privacy.html` links to `https://vinceremediaworks.com/` — update is automatic once DNS works; until then the GitHub URL in README is canonical.
+Until DNS resolves: https://jimmythegod100.github.io/vincere-media-works-web/
