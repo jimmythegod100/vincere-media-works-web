@@ -2,7 +2,9 @@
 
 Static marketing site for **Vincere Media Works** — website design, local SEO, analytics, and monthly care for local businesses.
 
-**Live site:** https://vinceremediaworks.com/ (GitHub Pages; falls back to https://jimmythegod100.github.io/vincere-media-works-web/ until DNS is live)
+**Live site:** https://jimmythegod100.github.io/vincere-media-works-web/
+
+`vinceremediaworks.com` is **not registered** (by design). Canonical URLs in HTML still reference the intended future domain; see `docs/CUSTOM-DOMAIN.md` if you purchase it later.
 
 ## Stack
 

@@ -2,17 +2,21 @@
 
 **Audit date:** 2026-07-24 (Mac valak)
 
+## Status: NOT purchased (by design)
+
+The purchased domain is **valleynotaryservices.com** (Valley Notary Services), not `vinceremediaworks.com`. Do **not** buy `vinceremediaworks.com` unless explicitly requested.
+
+**Live Vince Remedia Works site:** https://jimmythegod100.github.io/vincere-media-works-web/
+
 ## Live status (public DNS)
 
 | Check | Result |
 |-------|--------|
-| Verisign WHOIS | **No match** — not in `.com` registry yet |
+| Verisign WHOIS | **No match** — not in `.com` registry |
 | `dig @8.8.8.8 vinceremediaworks.com` | **NXDOMAIN** |
 | `dig @1.1.1.1 www` | **NXDOMAIN** |
 | `curl https://vinceremediaworks.com` | **Cannot resolve host** |
-| GitHub Pages (github.io) | **200 OK** — site built |
-
-If Cloudflare dashboard shows green checks but public DNS is still NXDOMAIN, the usual causes are: registration still processing, nameservers not updated at the registrar, or the zone was added in Cloudflare before the domain was actually registered.
+| GitHub Pages (github.io) | **200 OK** — site built, no custom domain configured |
 
 ## Checklist
 
@@ -24,9 +28,9 @@ If Cloudflare dashboard shows green checks but public DNS is still NXDOMAIN, the
 - [x] Canonical URLs, sitemap, robots.txt updated to custom domain
 - [x] `privacy.html` already references `vinceremediaworks.com`
 
-### STILL NEEDED (blocking custom domain)
+### STILL NEEDED (only if purchasing vinceremediaworks.com later)
 
-1. **Confirm domain registration completed** — Verisign must show the domain registered (not “No match”). Re-check: `whois -h whois.verisign-grs.com vinceremediaworks.com`
+1. **Purchase domain** — currently unregistered. Re-check: `whois -h whois.verisign-grs.com vinceremediaworks.com`
 2. **Point nameservers to Cloudflare** at the registrar (two Cloudflare NS hostnames from the zone overview).
 3. **Cloudflare DNS records** (DNS only / grey cloud for GitHub Pages):
 
